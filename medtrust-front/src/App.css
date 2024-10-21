@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #074854;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -25,8 +25,16 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: #28cfbb;
 }
+
+.container {
+  background-color: #b9c0c2; /* Fondo neutro */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
 
 @keyframes App-logo-spin {
   from {
@@ -39,25 +47,72 @@
 
 .chat-bubble {
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 15px;
   max-width: 60%;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  line-height: 1.4;
 }
 
 .chat-bubble-user {
-  background-color: #e0f7e0;
-  color: #006400;
+  background-color: #28cfbb;
+  color: white;
   align-self: flex-end;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .chat-bubble-assistant {
-  background-color: #ffe0e0;
-  color: #8b0000;
+  background-color: #074854; /* Color principal */
+  color: white;
   align-self: flex-start;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.chat-bubble-assistant.italic {
+  font-style: italic;
+  color: #b9c0c2;
 }
 
 .chat-box {
   display: flex;
   flex-direction: column;
-  height: 500px;
+  height: 400px;
+  background-color: #e9ecef;
+  border-radius: 10px;
+  padding: 10px;
+  border: 2px solid #28cfbb; 
   overflow-y: auto;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #28cfbb; /* Borde del input */
+  border-radius: 5px;
+  background-color: #ffffff;
+  color: #074854;
+  font-size: 1rem;
+  outline: none;
+}
+
+input[type="text"]:focus {
+  border-color: #074854; /* Cambio al hacer focus */
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #28cfbb; /* Botón de enviar */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #074854;
+}
+
+button:disabled {
+  background-color: #b9c0c2;
 }
