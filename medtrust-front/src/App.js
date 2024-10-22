@@ -55,9 +55,16 @@ function App() {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Chatea con MedTrust</h1>
+      {/* Logo */}
+      <div className="flex justify-center mb-4">
+        <img src={`${process.env.PUBLIC_URL}/logoMed.png`} alt="MedTrust Logo" className="w-32 h-auto" />
+      </div>
 
-      <div ref={chatBoxRef} className="chat-box bg-white mb-4 p-4 border border-gray-300 rounded h-96 overflow-y-auto">
+      {/* Título */}
+      <h1 className="text-3xl font-bold text-center text-[#074854] mb-6">Bienvenido a MedTrust</h1>
+
+      {/* Chat Box */}
+      <div ref={chatBoxRef} className="chat-box bg-white mb-4 p-4 border border-gray-300 rounded h-96 overflow-y-auto shadow-lg">
         {messages.map((message, index) => (
           <div
             key={index}
@@ -79,6 +86,7 @@ function App() {
         </div>
       )}
 
+      {/* Input y Botón */}
       <div className="flex">
         <input
           type="text"
@@ -87,13 +95,13 @@ function App() {
           onKeyDown={(e) => {
             if (e.key === 'Enter') sendMessage();
           }}
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border rounded focus:outline-none focus:border-[#28cfbb]"
           placeholder="Escribe un mensaje..."
           disabled={loading}
         />
         <button
           onClick={sendMessage}
-          className="ml-2 p-2 text-white rounded"
+          className="ml-2 p-2 bg-[#28cfbb] text-white rounded hover:bg-[#074854]"
           disabled={loading}
         >
           {loading ? 'Enviando...' : 'Enviar'}
@@ -102,4 +110,5 @@ function App() {
     </div>
   );
 }
+
 export default App;
