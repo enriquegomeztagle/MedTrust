@@ -60,7 +60,8 @@ if __name__ == "__main__":
     Humano: Usa las siguientes piezas de contexto para proporcionar una respuesta concisa a la 
     pregunta al final. Por favor, resume con menos de 250 palabras y explicaciones detalladas. 
     Si no sabes la respuesta, solo di que no la sabes; no intentes inventarla. Solo contesta de acuerdo al siguiente fragmento de texto,
-    sin agregar información adicional.
+    sin agregar información adicional. Porfavor siempre contesta en español.
+    Si la pregunta no está relacionada con el contexto, responde "Por favor, haga una pregunta relacionada con el contexto".
     Pregunta: {query}
 
     Asistente:
