@@ -21,23 +21,25 @@ function App() {
     setLoading(true);
   
     try {
-      const body = JSON.stringify({ message: input });
+      const body = JSON.stringify({ question: input });
       console.log('Enviando:', body);
   
-      const response = await fetch('https://3hmryuz7zufnp77t7sweh4imve0lrpuq.lambda-url.us-east-1.on.aws/', {
+      const response = await fetch('http://localhost:8080/query', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: body,
       });
+
+      console.log('Respuesta recibida:', response)
   
       if (!response.ok) {
         throw new Error(`Error en la respuesta: ${response.status}`);
       }
   
-      const data = await response.json(); // Aquí se define correctamente la variable data
-      const assistantMessage = { role: 'assistant', content: data.answer };
+      const data = await response.json();
+      const assistantMessage = { role: 'assistant', content: data.response };
       setMessages((prevMessages) => [...prevMessages, assistantMessage]);
     } catch (error) {
       console.error('Error al enviar el mensaje:', error);
