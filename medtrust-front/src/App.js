@@ -12,8 +12,8 @@ function App() {
 
   const sendMessage = async () => {
     if (input.trim() === '') return;
-    
-    setError(null); 
+  
+    setError(null);
     const userMessage = { role: 'user', content: input };
     setMessages((prevMessages) => [...prevMessages, userMessage]);
     setInput('');
@@ -21,18 +21,18 @@ function App() {
     setLoading(true);
   
     try {
-      const body = JSON.stringify({ question: input });
+      const body = JSON.stringify({ question: input, token: process.env.REACT_APP_API_TOKEN });
       console.log('Enviando:', body);
   
-      const response = await fetch('http://localhost:8080/query', {
+      const response = await fetch('https://vudsgttv4tdevdn4ogx4kc5lb40cmbsg.lambda-url.us-east-1.on.aws/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: body,
       });
-
-      console.log('Respuesta recibida:', response)
+  
+      console.log('Respuesta recibida:', response);
   
       if (!response.ok) {
         throw new Error(`Error en la respuesta: ${response.status}`);
@@ -45,9 +45,10 @@ function App() {
       console.error('Error al enviar el mensaje:', error);
       setError('Hubo un problema al procesar la respuesta del asistente. Inténtalo de nuevo.');
     } finally {
-      setLoading(false);  
+      setLoading(false);
     }
   };
+  
 
   useEffect(() => {
     if (chatBoxRef.current) {
