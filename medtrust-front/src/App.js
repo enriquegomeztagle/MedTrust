@@ -22,7 +22,7 @@ function App() {
   
     try {
       const body = JSON.stringify({ question: input, token: process.env.REACT_APP_API_TOKEN });
-      console.log('Enviando:', body);
+      // console.log('Enviando:', body);
   
       const response = await fetch('https://vudsgttv4tdevdn4ogx4kc5lb40cmbsg.lambda-url.us-east-1.on.aws/', {
         method: 'POST',
