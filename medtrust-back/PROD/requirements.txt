@@ -1,0 +1,11 @@
+# boto3
+# awscli
+
+pypdf 
+
+langchain 
+langchain_community
+langchain_ollama
+#langchain_aws
+
+faiss-cpu
